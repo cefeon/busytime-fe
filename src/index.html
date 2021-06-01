@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Busytime</title>
+   <link rel="stylesheet" href="index.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="render.js"></script>
+  </head>
+  <body>
+    <div id="clock" class="mx-auto absolute top-52 left-64 text-gray-300 text-6xl font-bold antialiased"></div>
+    <div id="form" class="mx-auto absolute top-72 left-52">
+      <input class="input h-12 w-80 bg-primary-color text-gray-50 font-bold font-sans antialiased text-center shadow-md" type="text" id="nowTask" placeholder="What are you doing right now?">
+      <button class="transition bg-primary-color transform hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full mx-50" onclick="addData()">+</button>
+    </div>     
+    <div id="container" class="flex space-x-4 absolute bottom-16 left-12">
+      <div id="tasksDone" class="scrollbar max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
+      <div id="tasksProgress" class="max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
+      <div id="tasksTodo" class="max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
+    </div>
+  </body>
+</html>

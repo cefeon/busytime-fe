@@ -10,7 +10,7 @@ async function printData(myData, tasksDone) {
     tasksDone.innerHTML = '';
     myData.then(
         a => a.data.forEach(x => {
-                tasksDone.innerHTML = tasksDone.innerHTML + '<li>' + "<b>" + x.startTime + "</b>" + " | " + x.name + '</li>'
+                tasksDone.innerHTML = tasksDone.innerHTML + '<li draggable="true" class="dragger dragover">' + "<b>" + x.startTime + "</b>" + " | " + x.name + '</li>'
             }));
 }
 
@@ -58,6 +58,45 @@ function start(){
     refreshData(0);
     refreshData(1);
     refreshData(2);
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+  
+        function handleDragStart(e) {
+          this.style.opacity = '0.8';
+            this.style.color = 'red';
+            console.log('oj tak tak');
+        }
+        
+        function handleDragOver(e) {
+          if (e.preventDefault) {
+            e.preventDefault();
+          }
+          
+          return false;
+        }
+      
+        function handleDragEnter(e) {
+          this.classList.add('over');
+          console.log('oj tak tak');
+        }
+      
+        function handleDragLeave(e) {
+          this.classList.remove('over');
+        }
+        
+        let items = document.querySelectorAll('.dragger');
+        items.forEach(item => {
+          item.addEventListener('dragstart', handleDragStart, false);
+          item.addEventListener('dragenter', handleDragEnter, false);
+          item.addEventListener('dragleave', handleDragLeave, false);
+        });
+
+        let dragovers = document.querySelectorAll('.dragover');
+        dragovers.forEach(item => {
+          item.addEventListener('dragover', handleDragOver, false);
+        });
+
+      });
 }
 
 start();

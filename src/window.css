@@ -1,0 +1,48 @@
+#titlebar {
+  display: block;
+  position: fixed;
+  height: 32px;
+  padding: 4px;
+  width: calc(100% - 2px);
+}
+
+#titlebar {
+  color: #FFF;
+}
+
+#window-title {
+  margin-left: 8px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+#window-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+#window-controls {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  height: 100%;
+}
+
+#window-controls {
+  -webkit-app-region: no-drag;
+}
+
+#window-controls .button {
+  user-select: none;
+}
+
+#close-button:hover {
+  transform: rotate(-180deg);
+  transition: transform 300ms ease;
+}
+
+#close-button:active .icon {
+  filter: invert(1);
+}

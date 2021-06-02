@@ -13,6 +13,12 @@ const createWindow = () => {
     height: 600,
     resizable: false,
     frame: false,
+    backgroundColor: '#FFF',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    }
   });
 
   // and load the index.html of the app.

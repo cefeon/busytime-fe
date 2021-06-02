@@ -5,18 +5,35 @@
     <title>Busytime</title>
    <link rel="stylesheet" href="index.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./window.css" rel="stylesheet">
+    <script defer src="window.js"></script>
     <script defer src="render.js"></script>
   </head>
   <body>
-    <div id="clock" class="mx-auto absolute top-52 left-64 text-gray-300 text-6xl font-bold antialiased"></div>
-    <div id="form" class="mx-auto absolute top-72 left-52">
-      <input class="input h-12 w-80 bg-primary-color text-gray-50 font-bold font-sans antialiased text-center shadow-md" type="text" id="nowTask" placeholder="What are you doing right now?">
-      <button class="transition bg-primary-color transform hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full mx-50" onclick="addData()">+</button>
+   
+    <header id="titlebar">
+        <div id="window-title">
+          <span>Busytime</span>
+        </div>
+
+        <div id="window-controls">
+          <div class="button" id="close-button">
+            <img class="icon" src="icons/close-w-15.png" draggable="false" />
+          </div>
+
+        </div>
+    </header>
+
+    <div id="clock"></div>
+    <div id="form">
+      <input class="input h-12 w-80 bg-primary-color text-gray-50 font-bold font-sans antialiased text-center active: outline-none focus:outline-none focus:ring focus:border-blue-100 transition-color duration-700" type="text" id="nowTask" placeholder="What are you doing right now?">
+      <button class="bg-primary-color hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="addData()">+</button>
+      <button class="bg-primary-color hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="removeLastData()">-</button>
     </div>     
     <div id="container" class="flex space-x-4 absolute bottom-16 left-12">
-      <div id="tasksDone" class="scrollbar max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
-      <div id="tasksProgress" class="max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
-      <div id="tasksTodo" class="max-h-48 overflow-auto bg-primary-color text-gray-50 shadow-md list-none min-w-full pl-3"></div>
+      <div id="tasksDone" class="scrollbar bg-primary-color bottom-box"></div>
+      <div id="tasksProgress" class="scrollbar bg-primary-color bottom-box"></div>
+      <div id="tasksTodo" class="scrollbar bg-primary-color bottom-box"></div>
     </div>
   </body>
 </html>

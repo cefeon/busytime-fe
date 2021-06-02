@@ -1,5 +1,6 @@
 const remote = require('electron').remote;
-const render = require('./render');
+const {addData} = require('./render');
+const removeLastData = require('./render').removeLastData;
 const win = remote.getCurrentWindow();
 
 document.onreadystatechange = (event) => {
@@ -10,7 +11,7 @@ document.onreadystatechange = (event) => {
 
 win.webContents.on("before-input-event", (event, input) => {
     if(input.key=='Enter'&&input.type=='keyDown'){
-        render.addData();
+        addData(0);
     }
 });
 

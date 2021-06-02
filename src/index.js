@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
+const {ipcMain} = require('electron');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -32,7 +33,6 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -49,6 +49,11 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+ipcMain.on('resize-window', (event, width, height) => {
+  let browserWindow = BrowserWindow.fromWebContents(event.sender)
+  browserWindow.setSize(width,height)
+})
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

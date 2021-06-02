@@ -27,13 +27,13 @@
     <div id="clock"></div>
     <div id="form">
       <input class="input h-12 w-80 bg-primary-color text-gray-50 font-bold font-sans antialiased text-center active: outline-none focus:outline-none focus:ring focus:border-blue-100 transition-color duration-700" type="text" id="nowTask" placeholder="What are you doing right now?">
-      <button class="bg-primary-color hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="addData()">+</button>
-      <button class="bg-primary-color hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="removeLastData()">-</button>
+      <button class="bg-primary-color hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="addData(0)">+</button>
+      <button class="bg-primary-color hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full mx-50 focus:outline-none active: outline-none transition-color duration-500" onclick="removeLastData(0)">-</button>
     </div>     
     <div id="container" class="flex space-x-4 absolute bottom-16 left-12">
-      <div id="tasksDone" class="scrollbar bg-primary-color bottom-box"></div>
-      <div id="tasksProgress" class="scrollbar bg-primary-color bottom-box"></div>
-      <div id="tasksTodo" class="scrollbar bg-primary-color bottom-box"></div>
+      <div id="tasksDone0" class="scrollbar bg-primary-color bottom-box"></div>
+      <div id="tasksDone1" class="scrollbar bg-primary-color bottom-box"></div>
+      <div id="tasksDone2" class="scrollbar bg-primary-color bottom-box"></div>
     </div>
   </body>
 </html>
